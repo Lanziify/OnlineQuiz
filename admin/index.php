@@ -128,7 +128,7 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
           <div class="panel-body">
             <?php
             if (isset($_GET['run']) && $_GET['run'] == "failed") {
-              echo "<mark>Check you username or password</mark>";
+              echo "<span>Check you username or password</span>";
             }
             ?>
             <form role="form" method="post" action="admin_signin.php">

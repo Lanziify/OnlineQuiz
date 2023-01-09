@@ -77,23 +77,10 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
         <div class="row">
             <div class="col-sm-3 col-md-2 sidebar">
                 <ul class="nav nav-sidebar">
-                    <li><a href="dashboard.php">Overview</a></li>
-                    <li class="active"><a href="createquiz.php">Create new questionare<span
+                    <li><a href="dashboard.php">Home</a></li>
+                    <li class="active"><a href="createquiz.php">Upload question<span
                                 class="sr-only">(current)</span></a></li>
                     <li><a href="categories.php">Edit categories</a></li>
-                    <li><a href="#">Export</a></li>
-                </ul>
-                <ul class="nav nav-sidebar">
-                    <li><a href="">Nav item</a></li>
-                    <li><a href="">Nav item again</a></li>
-                    <li><a href="">One more nav</a></li>
-                    <li><a href="">Another nav item</a></li>
-                    <li><a href="">More navigation</a></li>
-                </ul>
-                <ul class="nav nav-sidebar">
-                    <li><a href="">Nav item again</a></li>
-                    <li><a href="">One more nav</a></li>
-                    <li><a href="">Another nav item</a></li>
                 </ul>
             </div>
 
@@ -102,7 +89,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                 <br>
                 <br>
                 <br>
-                <div class="table-responsive">
+                <div style="border:none" class="table-responsive">
                     <table class="table table-striped">
                         <?php
 

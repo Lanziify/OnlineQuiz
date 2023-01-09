@@ -78,23 +78,10 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
         <div class="row">
             <div class="col-sm-3 col-md-2 sidebar">
                 <ul class="nav nav-sidebar">
-                    <li><a href="dashboard.php">Overview</a></li>
-                    <li><a href="createquiz.php">Create new questionare</a></li>
+                    <li><a href="dashboard.php">Home</a></li>
+                    <li><a href="createquiz.php">Upload question</a></li>
                     <li class="active"><a href="categories.php"><span class="sr-only">(current)</span>Edit
                             categories</a></li>
-                    <li><a href="#">Export</a></li>
-                </ul>
-                <ul class="nav nav-sidebar">
-                    <li><a href="">Nav item</a></li>
-                    <li><a href="">Nav item again</a></li>
-                    <li><a href="">One more nav</a></li>
-                    <li><a href="">Another nav item</a></li>
-                    <li><a href="">More navigation</a></li>
-                </ul>
-                <ul class="nav nav-sidebar">
-                    <li><a href="">Nav item again</a></li>
-                    <li><a href="">One more nav</a></li>
-                    <li><a href="">Another nav item</a></li>
                 </ul>
             </div>
 
@@ -119,7 +106,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                                                 <?php echo $c['category']; ?>
                                             </td>
                                             <td style="width: 13rem;">
-                                            <?php echo '<a class="btn btn-primary" style="padding: 5px;" href="update_category.php?updtcatid='. $c['id'] .'">Update</a>' ?>
+                                                <?php echo '<a class="btn btn-warning" style="padding: 5px;" href="update_category.php?updtcatid=' . $c['id'] . '">Update</a>' ?>
                                                 <input type="hidden" name="id" value="<?php echo $c['id']; ?>">
                                                 <button type="submit" class="btn btn-danger"
                                                     style="padding: 5px;">Delete</button>
@@ -129,33 +116,31 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                                 <?php } ?>
                             </table>
                         </form>
-                        <form method="post" action="add_category.php">
-                            <div class="form-group">
-                                <label for="text">Create new category</label>
-                                <input type="text" class="form-control" name="cat" placeholder="Enter Category Name"
-                                    required>
-                                <button style="margin-top: 10px;" type="submit"
-                                    class="btn btn-success">Submit</button><br>
-                            </div>
-                        </form>
-                        </tbody>
                     </table>
+                </div>
+                <form method="post" action="add_category.php">
                     <div class="form-group">
-                        <center>
-                            <?php
-                            if (isset($_GET['msg']) && !empty($_GET['msg'])) {
-                                echo '<div style="color: #fff; background-color: #5CB85C; border-radius: 5px; padding: 5px;">';
-                                echo "<span>Data inserted successfully!</span>";
-                                echo "</div>";
-                            }
-                            if (isset($_GET['msg_del']) && !empty($_GET['msg_del'])) {
-                                echo '<div style="color: #fff; background-color: #5CB85C; border-radius: 5px; padding: 5px;">';
-                                echo "<span>Data successfully deleted!</span>";
-                                echo "</div>";
-                            }
-                            ?>
-                        </center>
+                        <label for="text">Create new category</label>
+                        <input type="text" class="form-control" name="cat" placeholder="Enter Category Name" required>
+                        <button style="margin-top: 10px;" type="submit" class="btn btn-success">Submit</button><br>
                     </div>
+                </form>
+                </tbody>
+                <div class="form-group">
+                    <center>
+                        <?php
+                        if (isset($_GET['msg']) && !empty($_GET['msg'])) {
+                            echo '<div style="color: #fff; background-color: #5CB85C; border-radius: 5px; padding: 5px;">';
+                            echo "<span>Data inserted successfully!</span>";
+                            echo "</div>";
+                        }
+                        if (isset($_GET['msg_del']) && !empty($_GET['msg_del'])) {
+                            echo '<div style="color: #fff; background-color: #5CB85C; border-radius: 5px; padding: 5px;">';
+                            echo "<span>Data successfully deleted!</span>";
+                            echo "</div>";
+                        }
+                        ?>
+                    </center>
                 </div>
             </div>
         </div>

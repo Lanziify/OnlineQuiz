@@ -87,33 +87,24 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
         <div class="row">
             <div class="col-sm-3 col-md-2 sidebar">
                 <ul class="nav nav-sidebar">
-                    <li><a href="dashboard.php">Overview</a></li>
+                    <li><a href="dashboard.php">Home</a></li>
                     <li><a href="createquiz.php">Create new questionare</a></li>
                     <li class="active"><a href="categories.php"><span class="sr-only">(current)</span>Edit
                             categories</a></li>
-                    <li><a href="#">Export</a></li>
-                </ul>
-                <ul class="nav nav-sidebar">
-                    <li><a href="">Nav item</a></li>
-                    <li><a href="">Nav item again</a></li>
-                    <li><a href="">One more nav</a></li>
-                    <li><a href="">Another nav item</a></li>
-                    <li><a href="">More navigation</a></li>
-                </ul>
-                <ul class="nav nav-sidebar">
-                    <li><a href="">Nav item again</a></li>
-                    <li><a href="">One more nav</a></li>
-                    <li><a href="">Another nav item</a></li>
                 </ul>
             </div>
 
             <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
                 <h1 class="page-header">Update Category</h1>
                 <div class="form-group">
-                    <form method="post" >
-                        <input type="text" class="form-control" id="cat" name="cat" placeholder="Enter new category name">
-                        <button style="margin-top: 10px;" name="submit" type="submit" class="btn btn-success">Update</button>
+                    <form method="post">
+                        <input type="text" class="form-control" id="cat" name="cat"
+                            placeholder="Enter new category name" required>
+                        <button style="margin-top: 10px;" name="submit" type="submit"
+                            class="btn btn-success btn-block">Update</button>
+                        <input style="margin-top: 10px;" class="form-control btn btn-primary" type="button" value="Return" onclick="history.back()">
                     </form>
+
                     <div class="form-group">
                         <center>
                             <?php

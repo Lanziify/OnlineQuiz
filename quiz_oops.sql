@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 25, 2018 at 10:19 AM
--- Server version: 10.1.30-MariaDB
--- PHP Version: 7.2.1
+-- Generation Time: Jan 08, 2023 at 05:39 PM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.1.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -25,13 +24,34 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `admin`
+--
+
+CREATE TABLE `admin` (
+  `id` int(10) NOT NULL,
+  `username` varchar(40) NOT NULL,
+  `email` varchar(40) NOT NULL,
+  `pass` varchar(255) NOT NULL,
+  `img` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`id`, `username`, `email`, `pass`, `img`) VALUES
+(1, 'admin', 'admin@admin.com', 'admin', 'Nemsulogo.png');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `category`
 --
 
 CREATE TABLE `category` (
   `id` int(11) NOT NULL,
   `category` varchar(60) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `category`
@@ -46,7 +66,9 @@ INSERT INTO `category` (`id`, `category`) VALUES
 (7, 'Bootstrap'),
 (8, 'CSS'),
 (9, 'Ajax'),
-(10, 'JQuery');
+(10, 'JQuery'),
+(11, 'Python'),
+(12, 'Visual Basic');
 
 -- --------------------------------------------------------
 
@@ -63,7 +85,7 @@ CREATE TABLE `questions` (
   `ans4` varchar(100) NOT NULL,
   `ans` varchar(50) NOT NULL,
   `cat_id` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `questions`
@@ -159,7 +181,9 @@ INSERT INTO `questions` (`id`, `question`, `ans1`, `ans2`, `ans3`, `ans4`, `ans`
 (92, 'Which of the following jQuery method gets a set of elements containing all of the unique siblings of each of the matched set of elements?', 'parents( selector )', ' prevAll( selector)', ' siblings( selector )', 'None of the above.', '2', 10),
 (93, 'Which of the following jQuery method returns the top and left position of an element relative to its offset parent', ' offset( )', 'offsetParent( )', ' position( )', 'None of the above.', '2', 10),
 (94, ' Which of the following jQuery method can be used to make a ajax call?', 'ready(url, [data], [callback] )', 'load( url, [data], [callback] )', 'reload(url, [data], [callback] )', ' None of the above.', '1', 10),
-(95, ' Which of the following jQuery method loads a JSON data using an HTTP GET request?', ' jQuery.get( url, [data], [callback], [type] )', ' jQuery.getJSON( url, [data], [callback] )', 'jQuery.getScript( url, [callback] )', ' jQuery.post( url, [data], [callback], [type] )', '1', 10);
+(95, ' Which of the following jQuery method loads a JSON data using an HTTP GET request?', ' jQuery.get( url, [data], [callback], [type] )', ' jQuery.getJSON( url, [data], [callback] )', 'jQuery.getScript( url, [callback] )', ' jQuery.post( url, [data], [callback], [type] )', '1', 10),
+(96, 'Who developed Python Programming Language?', 'Wick van Rossum', 'Rasmus Lerdorf', 'Guido van Rossum', 'Niene Stom', '2', 11),
+(97, 'Which of the following statement is used to define a class in visual basic?', 'Symantec', 'Ashton-Tate', 'Microsoft', 'Sybase', '2', 12);
 
 -- --------------------------------------------------------
 
@@ -173,7 +197,7 @@ CREATE TABLE `signup` (
   `email` varchar(40) NOT NULL,
   `pass` varchar(255) NOT NULL,
   `img` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `signup`
@@ -181,11 +205,34 @@ CREATE TABLE `signup` (
 
 INSERT INTO `signup` (`id`, `name`, `email`, `pass`, `img`) VALUES
 (1, 'ben', 'ben@123', '123', 'fc.jpg'),
-(2, 'Aja', 'aja@gmail.com', '1234', 'done.jpg');
+(2, 'Aja', 'aja@gmail.com', '1234', 'done.jpg'),
+(3, 'Lance', 'Lance@test.com', '123', 'done.jpg'),
+(4, 'Pyu', 'Pyu@test.com', '123', 'done.jpg'),
+(5, 'Hades', 'Hades@hell.com', '123', 'done.jpg'),
+(6, 'Test', 'Test@123', 'qwe', ''),
+(7, 'Bane', 'Bane@123.com', 'abc', ''),
+(8, 'Gus', 'Gus123@gmail.com', 'Gus123', ''),
+(9, 'Sele', 'pana@arrow.net', 'MHyan', ''),
+(10, 'Harith', 'dasherist@dash.com', 'dashharith', ''),
+(11, 'Layla', 'Layla@ml.com', 'Laylatank', ''),
+(12, 'Tigreal', 'tank@tank.com', 'endurance', ''),
+(13, 'Solstice', 'sol@gmail.com', 'qwe', 'IMG_8275.JPG');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `category`
+--
+ALTER TABLE `category`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `questions`
@@ -204,16 +251,28 @@ ALTER TABLE `signup`
 --
 
 --
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `category`
+--
+ALTER TABLE `category`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
 -- AUTO_INCREMENT for table `questions`
 --
 ALTER TABLE `questions`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98;
 
 --
 -- AUTO_INCREMENT for table `signup`
 --
 ALTER TABLE `signup`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
